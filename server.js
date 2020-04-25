@@ -8,11 +8,20 @@ app.set('view engine', 'ejs')
 
 //-----------ROUTES
 
+// HOMEPAGE
 app.get('/', (req, res) => {
    res.render('index')
 });
 
+// ADMIN 
+app.get('/admin', (req, res) => {
+   res.render('admin')
+});
 
+// ALL ANIMALS
+app.get('/animals', (req, res) => {
+   res.render('show')
+   });
 
 //-----------LISTENER
 
