@@ -20,9 +20,13 @@
 						<a href="/">Homepage</a>
 					</li>
 				</ul>
-			</nav>
+            </nav>
 		</header>
     </body>
     <body>
+        <section>
+            <h3><%= animal.name %></h3>
+            <form action="/animals/<%= animal._id%>?_method=DELETE" method="POST"><button type="submit">Delete</button></form>
+        </section>
     </body>
 </html>

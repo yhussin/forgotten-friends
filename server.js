@@ -1,14 +1,21 @@
 const express = require('express');
-
+const methodOverride = require('method-override');
+const bodyParser = require('body-parser');
 const app = express();
 
 const port = process.env.PORT || 4000;
 
 // CONTROLLERS 
 const animalController = require('./controllers/animalController');
+// const adminController = require('./controllers/adminController');
 
 
 app.set('view engine', 'ejs')
+
+// MIDDLEWARE
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //-----------ROUTES
 
@@ -17,17 +24,9 @@ app.get('/', (req, res) => {
    res.render('index')
 });
 
-// ADMIN 
-app.get('/admin', (req, res) => {
-   res.render('admin')
-});
+// ROOT ROUTES
+app.use('/animals', animalController); 
+// app.use('/admin', adminController);
 
-// ALL ANIMALS
-// app.get('/animals', (req, res) => {
-//    res.render('show')
-//    });
-
- app.use('/animals', animalController);  
 //-----------LISTENER
-
 app.listen(port, () => console.log(`Server is running on port: ${port}`));
