@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const AnimalSchema = new mongoose.Schema({
     name: {type: String},
+    image: {type: String},
     age: {type: Number}
 })
 

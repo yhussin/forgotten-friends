@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="/animals/<%= animal._id %>?_method=PUT" method="POST">
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" value="<%= animal.name %>">
+        <input type="submit" value="update animal">
+        </form>
+</body>
+</html>
