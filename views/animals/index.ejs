@@ -7,10 +7,13 @@
     <title>Animals</title>
 </head>
 <body>
+    <p>
     <% animals.forEach((animal) => { %>
         <a href="/animals/<%= animal._id %>">
         <%= animal.name %> 
         </a>
+    <img src="<%= animal.image %>" alt="animal picture">
+    </p>
    <% }) %>
 </body>
 </html>

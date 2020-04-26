@@ -38,6 +38,31 @@ router.get('/:id', (req, res) => {
     })
 });
 
+router.get('/:id/edit', (req, res) => {
+    db.Animal.findById(req.params.id, (err, foundAnimal) => {
+        if(err) {
+            return res.send(err)
+        }
+        res.render('animals/edit', {
+            animal: foundAnimal
+        })
+    })
+});
+
+router.put('/:id', (req, res) => {
+    db.Animal.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true},
+        (err, updatedAnimal) => {
+            if(err) {
+                return res.send(err)
+            }
+            res.redirect(`/animals/${updatedAnimal._id}`)
+        }
+    )
+});
+
 router.delete('/:id', (req, res) => {
     db.Animal.findByIdAndDelete(req.params.id, (err, deletedAnimal) => {
         if(err) {

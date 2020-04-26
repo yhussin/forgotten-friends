@@ -26,7 +26,9 @@
     <body>
         <section>
             <h3><%= animal.name %></h3>
-            <form action="/animals/<%= animal._id%>?_method=DELETE" method="POST"><button type="submit">Delete</button></form>
+            <form action="/animals/<%= animal._id%>?_method=DELETE" method="POST"><button type="submit">Delete</button>
+            <a href="/animals/<%= animal._id %>/edit">Edit</a>
+            </form>
         </section>
     </body>
 </html>
