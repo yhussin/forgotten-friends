@@ -4,6 +4,10 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
+// CONTROLLERS 
+const animalController = require('./controllers/animalController');
+
+
 app.set('view engine', 'ejs')
 
 //-----------ROUTES
@@ -19,10 +23,11 @@ app.get('/admin', (req, res) => {
 });
 
 // ALL ANIMALS
-app.get('/animals', (req, res) => {
-   res.render('show')
-   });
+// app.get('/animals', (req, res) => {
+//    res.render('show')
+//    });
 
+ app.use('/animals', animalController);  
 //-----------LISTENER
 
 app.listen(port, () => console.log(`Server is running on port: ${port}`));
