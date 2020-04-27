@@ -16,4 +16,7 @@ const configOptions = {
       console.log(`mongodb connection error ${err}`)
   })
 
-module.exports = {Animal: require('./Animal')}
+module.exports = {
+    Animal: require('./Animal'),
+    Admin: require('./Admin'),
+}

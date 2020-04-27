@@ -1,14 +1,15 @@
 <%- include('../partials/_head') %> 
-<div class="body_container">
-    <p>
+<div class="body-container">
+    
     <% animals.forEach((animal) => { %>
         <a href="/animals/<%= animal._id %>">
         <%= animal.name %> 
         </a>
-        <br>
+        
     <img src="<%= animal.image %>" alt="animal picture">
-    </p>
+    
    <% }) %>
+  
 </div>
 </body>
 </html>

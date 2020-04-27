@@ -7,7 +7,7 @@ const port = process.env.PORT || 4000;
 
 // CONTROLLERS 
 const animalController = require('./controllers/animalController');
-// const adminController = require('./controllers/adminController');
+const adminController = require('./controllers/adminController');
 
 
 app.set('view engine', 'ejs')
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 // ROOT ROUTES
 app.use('/animals', animalController); 
-// app.use('/admin', adminController);
+app.use('/admin', adminController);
 
 //-----------LISTENER
 app.listen(port, () => console.log(`Server is running on port: ${port}`));
