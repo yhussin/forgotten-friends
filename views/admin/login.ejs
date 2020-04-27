@@ -1,5 +1,9 @@
 <%- include('../partials/_head') %> 
 
+<% if (typeof error !== 'undefined') { %> 
+<span><%= error %> </span>
+<% } %> 
+
 <h1>Login below</h1>
 <form action="/admin/login" method="POST">
     <div>

@@ -33,12 +33,32 @@ router.post('/register', async (req, res) => {
     res.redirect('/admin/login');
     } catch (err) {
         res.send(err)
-        console.log('err', err)
-    }
+    };
 });
 
+//GET new login
 router.get('/login', (req, res) => {
     res.render('admin/login')
+});
+
+router.post('/login', async (req, res) => {
+    //try {
+    const admin = await db.Admin.findOne({username: req.body.username});
+    console.log(admin);
+    if (admin) {
+        return res.redirect('/admin')
+    }
+
+    //     const admin = await db.Admin.findOne({username: req.body.username});
+    //     if (!admin) {
+    //         return res.render('admin/login', {
+    //             error: "INVALID CREDENTIALS"
+    //         })
+    //     }
+    // //passowords match
+
+    //res.redirect('admin/register')
+    //}
 });
 
 module.exports = router;
