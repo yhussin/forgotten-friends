@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
         res.render('animals/index', {
             animals: allAnimals,
         })
-    })
+    });
 });
 
 router.get('/new', (req, res) => {
