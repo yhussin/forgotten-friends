@@ -1,5 +1,6 @@
 const express = require('express');
 const methodOverride = require('method-override');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -14,6 +15,11 @@ app.set('view engine', 'ejs')
 
 // MIDDLEWARE
 app.use(methodOverride('_method'));
+app.use(session({
+   secret: 'sljdslkjdlskdjlkdnlkd', 
+   resave: false,
+   saveUninitialized: false
+}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));

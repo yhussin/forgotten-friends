@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Animals Page</title>
-	</head>
-	<body>
-		<header>
-            <h1>Forgotten Friends</h1>
-			<h2>All Animals</h2>
-			<nav>
-				<ul>
-					<li>
-						<a href="/admin">Admin</a>
-					</li>
-					<li>
-						<a href="/animals">Find A Friend</a>
-                    </li>
-                    <li>
-						<a href="/">Homepage</a>
-					</li>
-				</ul>
-            </nav>
-		</header>
-    </body>
+<%- include('../partials/_head') %> 
+
+            <h1>Individual animal</h1>
+			
     <body>
         <section>
             <h3><%= animal.name %></h3>
@@ -31,4 +10,5 @@
             </form>
         </section>
     </body>
-</html>
+
+	<%- include('../partials/_footer') %> 
