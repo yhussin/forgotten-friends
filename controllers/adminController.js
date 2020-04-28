@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 // Database
@@ -22,11 +23,15 @@ router.post('/register', async (req, res) => {
         if (admin) {
             return res.send('<h1>Account already exists, try again</h1>')
         }
+
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(req.body.password, salt);
+
     
     const adminData = {
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password,
+        password: hash,
         // HASH PASSWORD    
     }
 
@@ -52,11 +57,14 @@ router.post('/login', async (req, res) => {
             error: 'invalid credentials'
         });
     }
-    // if (req.body.password !== '1234') {
-    //     return res.render('admin/login', {
-    //         error: 'invalid credentials'
-    //     })
-    // }
+
+    const passwordsMatch = bcrypt.compareSync(req.body.password, admin.password)
+
+    if (passwordsMatch === false) {
+        return res.render('admin/login', {
+            error: 'invalid credentials'
+        })
+    }
     req.session.currentUser = admin._id
     console.log('this is req.session', req.session)
     res.redirect('/')
@@ -65,5 +73,14 @@ router.post('/login', async (req, res) => {
         res.send(err)
     }
 });
+
+// router.get('/logout', async (req, res) => {
+//     try {
+//         await req.session.destroy();
+//         res.redirect('/admin/login');
+//     } catch (err) {
+//         res.send(err);
+//     }
+// });
 
 module.exports = router;
