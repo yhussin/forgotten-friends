@@ -6,7 +6,7 @@ const db = require('../models');
 
 
 router.get('/', (req, res) => {
-    res.render('admin')
+    res.render('admin/index')
 });
 
 router.get('/register', (req, res) => {
@@ -27,6 +27,7 @@ router.post('/register', async (req, res) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
+        // HASH PASSWORD    
     }
 
     await db.Admin.create(adminData);
@@ -42,23 +43,27 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    //try {
+    try {
+    console.log(req.body)
     const admin = await db.Admin.findOne({username: req.body.username});
-    console.log(admin);
-    if (admin) {
-        return res.redirect('/admin')
+    console.log('admin', admin);
+    if (!admin) {
+        return res.render('admin/login', {
+            error: 'invalid credentials'
+        });
     }
-
-    //     const admin = await db.Admin.findOne({username: req.body.username});
-    //     if (!admin) {
-    //         return res.render('admin/login', {
-    //             error: "INVALID CREDENTIALS"
-    //         })
-    //     }
-    // //passowords match
-
-    //res.redirect('admin/register')
-    //}
+    // if (req.body.password !== '1234') {
+    //     return res.render('admin/login', {
+    //         error: 'invalid credentials'
+    //     })
+    // }
+    req.session.currentUser = admin._id
+    console.log('this is req.session', req.session)
+    res.redirect('/')
+    }
+    catch (err) {
+        res.send(err)
+    }
 });
 
 module.exports = router;
