@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="/styles/main.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>New Animals</title>
-</head>
+<%- include('../partials/_head') %> 
+
 <body>
     <h1>add new animals</h1>
     <form action="/animals" method="POST">
@@ -19,4 +12,5 @@
     <input type="submit" value="add animal">
     </form>
 </body>
-</html>
+
+<%- include('../partials/_footer') %> 
