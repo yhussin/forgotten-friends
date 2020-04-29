@@ -24,15 +24,15 @@ router.post('/register', async (req, res) => {
             return res.send('<h1>Account already exists, try again</h1>')
         }
 
-        const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(req.body.password, salt);
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.password, salt);
 
     
     const adminData = {
         username: req.body.username,
         email: req.body.email,
         password: hash,
-        // HASH PASSWORD    
+        // HASH PASSWORD - it is still showing on new registrations
     }
 
     await db.Admin.create(adminData);
@@ -52,6 +52,7 @@ router.post('/login', async (req, res) => {
     console.log(req.body)
     const admin = await db.Admin.findOne({username: req.body.username});
     console.log('admin', admin);
+
     if (!admin) {
         return res.render('admin/login', {
             error: 'invalid credentials'
@@ -74,13 +75,16 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// router.get('/logout', async (req, res) => {
-//     try {
-//         await req.session.destroy();
-//         res.redirect('/admin/login');
-//     } catch (err) {
-//         res.send(err);
-//     }
-// });
+router.get('/logout', async (req, res) => {
+    try {
+        
+
+        await req.session.destroy();
+        res.redirect('/admin/login');
+        console.log("is it deleted:", req.session)
+    } catch (err) {
+        res.send(err);
+    }
+});
 
 module.exports = router;
