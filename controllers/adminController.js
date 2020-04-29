@@ -67,7 +67,7 @@ router.post('/login', async (req, res) => {
         })
     }
     req.session.currentUser = admin._id
-    console.log('this is req.session', req.session)
+    console.log('this is req.session:', req.session)
     res.redirect('/')
     }
     catch (err) {
@@ -80,7 +80,7 @@ router.get('/logout', async (req, res) => {
         if (req.session.currentUser !== 'undefined') {
         await req.session.destroy();
         res.redirect('/admin/login');
-        console.log("is it deleted:", req.session)    
+        console.log("is session deleted?:", req.session)    
         }
         
     } catch (err) {
