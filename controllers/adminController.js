@@ -77,11 +77,12 @@ router.post('/login', async (req, res) => {
 
 router.get('/logout', async (req, res) => {
     try {
-        
-
+        if (req.session.currentUser !== 'undefined') {
         await req.session.destroy();
         res.redirect('/admin/login');
-        console.log("is it deleted:", req.session)
+        console.log("is it deleted:", req.session)    
+        }
+        
     } catch (err) {
         res.send(err);
     }
