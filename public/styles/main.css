@@ -1,7 +1,8 @@
 body {
-    background-color: whitesmoke;
+    font-family: 'Playfair Display SC', serif;
+    background-color: #4682B4;
     text-align: center;
-    color: #0033A3;
+    color: whitesmoke;
     margin: 0;
 }
 .body-container {
@@ -12,11 +13,12 @@ h1 {
     font-size: 50px;
 }
 .navbar {
-    background-color: #0033A3;
     padding: 15px;
 }
 .navbar a {
   text-decoration: none;
-  color: white;
   padding: 10px;
+}
+.media-body {
+    align-items: center;
 }
