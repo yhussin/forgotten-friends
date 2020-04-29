@@ -14,8 +14,14 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/new', (req, res) => {
-    res.render('animals/new')
+router.get('/new', (req, res) => {   
+    
+    console.log(req.session.currentUser);
+    if (!req.session.currentUser) {
+        return res.redirect('/admin')
+    }
+
+    res.render('animals/new');
 });
 
 router.post('/', (req, res) => {
