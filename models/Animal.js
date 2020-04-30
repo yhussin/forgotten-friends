@@ -20,7 +20,7 @@ const AnimalSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Admin',
     }
-});
+}, {timestamps: true});
 
 const Animal = mongoose.model('Animal', AnimalSchema);
 module.exports = Animal;

@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
 
     if (!admin) {
         return res.render('admin/login', {
-            error: 'invalid credentials'
+            error: 'INVALID CREDENTIALS'
         });
     }
 
@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
 
     if (passwordsMatch === false) {
         return res.render('admin/login', {
-            error: 'invalid credentials'
+            error: 'INVALID CREDENTIALS'
         })
     }
     req.session.currentUser = admin._id
@@ -89,3 +89,7 @@ router.get('/logout', async (req, res) => {
 });
 
 module.exports = router;
+
+
+//            <h3>Profile created on: <%= new Date (animal.createdAt).toLocaleDateString() %></h3>
+// add to show route
