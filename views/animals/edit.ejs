@@ -1,6 +1,11 @@
 <%- include('../partials/_head') %> 
 
 <body>
+    
+    <% if (typeof error !== 'undefined') { %> 
+        <span> <%= error %> </span>
+        <% } %> 
+
     <form action="/animals/<%= animal._id %>?_method=PUT" method="POST">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" value="<%= animal.name %>">

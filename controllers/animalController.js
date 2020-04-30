@@ -108,7 +108,7 @@ router.put('/:id', (req, res) => {
     db.Animal.findByIdAndUpdate(
         req.params.id,
         req.body,
-        { new: true },
+        { new: true, runValidators: true},
         (err, updatedAnimal) => {
             if (err) {
                 return res.send(err)
@@ -117,6 +117,21 @@ router.put('/:id', (req, res) => {
         }
     )
 });
+
+// router.put('/:id', (req, res) => {
+//     console.log("Request is here:", req.body);
+//     db.Animal.findByIdAndUpdate(
+//         req.params.id,
+//         req.body,
+//         { new: true, runValidators: true},
+//         (err, updatedAnimal) => {
+//             if (error) {
+//                 return res.send(err)
+//             }
+//             res.redirect(`/animals/${updatedAnimal._id}`)
+//         }
+//     )
+// });
 
 router.delete('/:id', (req, res) => {
     db.Animal.findByIdAndDelete(req.params.id, (err, deletedAnimal) => {
