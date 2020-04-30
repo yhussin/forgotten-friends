@@ -22,7 +22,7 @@ router.get('/new', (req, res) => {
     }
 
     res.render('animals/new', {
-       //error: "Please complete all fields",
+       error: "Please complete all fields",
        //need to update - shows up even without error
     });
 });
