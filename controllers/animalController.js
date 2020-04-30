@@ -21,24 +21,33 @@ router.get('/new', (req, res) => {
         return res.redirect('/admin')
     }
 
-    res.render('animals/new');
+    res.render('animals/new', {
+       //error: "Please complete all fields",
+       //need to update - shows up even without error
+    });
 });
 
 router.post('/', async (req, res) => {
     //connection to req.session.currentuser
-
     try {
-        const newAnimal = await db.Animal.create(req.body)
+        req.body.admin = req.session.currentUser
 
-        const adminProfile = await db.Admin.findById(req.session.currentUser)
+        const newAnimal = await db.Animal.create(req.body);
+
+        const adminProfile = await db.Admin.findById(req.session.currentUser);
 
         adminProfile.animals.push(newAnimal)
 
-        const connectedAdmin = await adminProfile.save()
+        adminProfile.save((err, savedAdminProfile) => {
+        if (err) {
+            return res.send(err)
+        } 
+        //res.redirect(`/animals/${newAnimal._id}`)
+        })
 
-        console.log('currentUser from animalController:', req.session.currentUser);
-        console.log('newAnimal', newAnimal)
-        console.log('admin profile:', adminProfile.username)
+        // console.log('currentUser from animalController:', req.session.currentUser);
+        // console.log('newAnimal', newAnimal)
+        // console.log('admin profile:', adminProfile.username)
 
         res.redirect(`/animals/${newAnimal._id}`)
     }   catch (err) {
@@ -46,27 +55,42 @@ router.post('/', async (req, res) => {
     }
 });
 
-// router.post('/', (req, res) => {
-//     //connection to req.session.currentuser
-//     db.Animal.create(req.body, (err, newAnimal) => {
-//         if(err) {
+
+router.get('/:id', async (req, res) => {
+    try {
+        const foundAnimal = await db.Animal.findById(req.params.id).populate('admin');
+        const adminProfile = await db.Animal.findById(req.params.id).populate('admin');
+       
+        console.log("foundAnimal", foundAnimal);
+        console.log("adminprofile:", adminProfile);
+       
+
+        res.render('animals/show', {
+            error: "Some error message", 
+            animal: foundAnimal, 
+            admin: adminProfile,
+        });
+    } catch (err) {
+        res.send(err);
+    }
+})
+
+
+
+
+// router.get('/:id', (req, res) => {  //use populate
+//     db.Animal.findById(req.params.id, (err, foundAnimal) => {
+//         if (err) {
 //             return res.send(err)
 //         }
-//         res.redirect('/animals')
+//         console.log('foundAnimal:', foundAnimal)
+//         res.render('animals/show', {
+//             animal: foundAnimal,
+            
+//             //user: adminProfile.username,
+//         })
 //     })
 // });
-
-router.get('/:id', (req, res) => {
-    db.Animal.findById(req.params.id, (err, foundAnimal) => {
-        if (err) {
-            return res.send(err)
-        }
-        //console.log('username:', req.body.username)
-        res.render('animals/show', {
-            animal: foundAnimal,
-        })
-    })
-});
 
 router.get('/:id/edit', (req, res) => {
     db.Animal.findById(req.params.id, (err, foundAnimal) => {

@@ -1,7 +1,15 @@
 <%- include('../partials/_head') %> 
 
+
 <body>
+
+
     <h1>add new animals</h1>
+
+    <% if (typeof error !== 'undefined') { %> 
+        <span color: red> <%= error %> </span>
+        <% } %> 
+
     <form action="/animals" method="POST">
     <label for="name">name</label>
     <input type="text" id="name" name="name">
