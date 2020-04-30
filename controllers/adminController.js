@@ -89,3 +89,7 @@ router.get('/logout', async (req, res) => {
 });
 
 module.exports = router;
+
+
+//            <h3>Profile created on: <%= new Date (animal.createdAt).toLocaleDateString() %></h3>
+// add to show route
