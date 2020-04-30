@@ -1,9 +1,10 @@
 body {
-    font-family: 'Playfair Display SC', serif;
-    background-color: #4682B4;
+    background-color: #5971AD	;
     text-align: center;
     color: whitesmoke;
     margin: 0;
+    overflow-x: hidden;
+    cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAZCAMAAAD63NUrAAAACVBMVEX///8AAAD///9+749PAAAAAXRSTlMAQObYZgAAAFZJREFUeNqdzksKwDAIAFHH+x+6lIYOVPOhs5OHJnES/5UkYKEkU7xjijSIm50iFh4fAXgYDd/yumVVRSwsqq/nRA3xVK0oo06d5U6DpQZ7PV7lMxH7LkaQAbYFwryzAAAAAElFTkSuQmCC),auto;
 }
 .body-container {
     display: flex;
@@ -14,8 +15,179 @@ h1 {
 }
 .navbar {
     padding: 15px;
+    cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAZCAMAAAD63NUrAAAACVBMVEX///8AAAD///9+749PAAAAAXRSTlMAQObYZgAAAFZJREFUeNqdzksKwDAIAFHH+x+6lIYOVPOhs5OHJnES/5UkYKEkU7xjijSIm50iFh4fAXgYDd/yumVVRSwsqq/nRA3xVK0oo06d5U6DpQZ7PV7lMxH7LkaQAbYFwryzAAAAAElFTkSuQmCC),auto;
 }
 .navbar a {
   text-decoration: none;
   padding: 10px;
+  cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAZCAMAAAD63NUrAAAACVBMVEX///8AAAD///9+749PAAAAAXRSTlMAQObYZgAAAFZJREFUeNqdzksKwDAIAFHH+x+6lIYOVPOhs5OHJnES/5UkYKEkU7xjijSIm50iFh4fAXgYDd/yumVVRSwsqq/nRA3xVK0oo06d5U6DpQZ7PV7lMxH7LkaQAbYFwryzAAAAAElFTkSuQmCC),auto;
 }
+
+.card {
+    margin: 10px;
+    width: 18rem;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-decoration-color: none;
+    color: black;
+}
+.container {
+    display: flex;
+    justify-content: space-evenly;
+} 
+
+.shelterinformation{
+
+    margin: 50px 0px 0px 60px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    background:whitesmoke;
+    border-radius: 20px;
+    color: black;
+    padding: 15px;
+    text-align: left;
+   
+
+}
+
+.btn{
+    background-color:#5971AD		;
+}
+#buttonforanimals{
+    margin-top: 10px;
+}
+.friendsheader{
+    margin: 40px 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+
+    border: whitesmoke 5px;
+}
+#shelterhead{
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+  
+}
+
+.catalogs{
+    margin-top: 100px;
+}
+
+.catalog1{
+    height: 100%;
+    margin-right: 30%;
+    font-size: 15px;
+    background:whitesmoke;
+    border-radius: 20px;
+    color: black;
+    padding: 15px;
+}
+
+.catalog2{ 
+    height: 100%;
+    font-size: 15px;
+    background:whitesmoke;
+    border-radius: 20px;
+    color: black;
+    padding: 15px;
+}
+
+.catalog3{
+    height: 100%;
+    margin-left: 30%;
+    font-size: 15px;
+    background:whitesmoke;
+    border-radius: 20px;
+    color: black;
+    padding: 15px;
+}
+.shelterimage{
+margin: -400px 0px 0px 630px;
+z-index: 3px;
+}
+.dogheader{
+    margin-top:10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+.catheader{
+    margin-top:10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+.smallanimalsheader{
+    margin-top:10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+@media (max-width: 860px) { 
+    .shelterimage{
+        margin: auto;
+        z-index: 1px;
+        }
+        .catalog1{
+            margin-right: auto;
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+        .catalog2{ 
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+        
+        .catalog3{
+            margin-left: auto;
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+  }
+  @media (max-width: 480px) { 
+    .shelterimage{
+        margin: auto;
+        z-index: 1px;
+        }
+        .catalog1{
+            margin-right: auto;
+        
+        font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+        .catalog2{ 
+           
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+        
+        .catalog3{
+            margin-left: auto;
+           
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+  }
