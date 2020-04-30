@@ -4,15 +4,17 @@
 			
     <body>
         <section>
+            <div class="card indvcard">
             <h3><%= animal.name %>: <%= animal.age %> years old</h3>
             <br>
             <h3>Profile creator: <%= admin.admin.username %> </h3>
             <img src="<%= animal.image %> " alt="">
             <br>
-            <%= animal.description %> 
-            <form action="/animals/<%= animal._id%>?_method=DELETE" method="POST"><button type="submit">Delete</button>
-            <a href="/animals/<%= animal._id %>/edit">Edit</a>
+            <h4 class="petnameheader"><%= animal.description %> </h4>
+            <form action="/animals/<%= animal._id%>?_method=DELETE" method="POST"><button type="submit" class="btn btn-large">Delete</button>
+                <button type="submit" class="btn btn-large"> <a href="/animals/<%= animal._id %>/edit">Edit</a></button>
             </form>
+        </div>
         </section>
     </body>
 

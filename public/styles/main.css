@@ -24,13 +24,23 @@ h1 {
 }
 
 .card {
-    margin: 10px;
-    width: 18rem;
-    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     text-decoration-color: none;
     color: black;
+}
+.indvcard{
+    width: 50%;
+   margin-left: 25%;
+   
+}
+
+.petnameheader{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+
 }
 .container {
     display: flex;
@@ -52,7 +62,8 @@ h1 {
 }
 
 .btn{
-    background-color:#5971AD		;
+    background-color:#5971AD;
+    margin: 0px 5px 0px 5px;
 }
 #buttonforanimals{
     margin-top: 10px;
