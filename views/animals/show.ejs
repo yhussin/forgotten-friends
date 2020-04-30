@@ -8,6 +8,7 @@
             <h3><%= animal.name %>: <%= animal.age %> years old</h3>
             <br>
             <h3>Profile creator: <%= admin.admin.username %> </h3>
+            <h3>Profile created on: <%= new Date (animal.createdAt).toLocaleDateString() %></h3>
             <img src="<%= animal.image %> " alt="">
             <br>
             <h4 class="petnameheader"><%= animal.description %> </h4>
