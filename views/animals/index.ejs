@@ -1,17 +1,17 @@
 <%- include('../partials/_head') %> 
 
-<h1 class="friendsheader">Our Friends!</h1>
+<h1 class="friendsheader">Our Animals!</h1>
 <div class="container">
   <div class="row">
 
-    <% animals.forEach((animal) => { %>
+    <% animals.forEach((animal) => { %> 
       <div class="card col-lg-4">
-        <a href="/animals/<%= animal._id %>">
+        <p>
         <%= animal.name %> 
-        </a>
+        </p>
         
     <img src="<%= animal.image %>" alt="animal picture">
-    <p><a class="btn btn-secondary" href="#" role="button" id="buttonforanimals">View me! &raquo;</a></p>
+    <p><a class="btn btn-secondary" href="/animals/<%= animal._id%>" role="button" id="buttonforanimals">View me!</a></p>
       </div>
    <% }) %>
   </div>
