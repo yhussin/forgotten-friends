@@ -2,8 +2,18 @@
 
 <body>
     <form action="/animals/<%= animal._id %>?_method=PUT" method="POST">
-        <label for="name">name</label>
+        <label for="name">Name</label>
         <input type="text" id="name" name="name" value="<%= animal.name %>">
+        <br>
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" value="<%= animal.age %>">
+        <br>
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" value="<%= animal.description %>">
+        <br>
+        <label for="image">Add Image URL</label>
+        <input type="text" id="image" name="image" value="<%= animal.image %>">
+        <br>
         <input type="submit" value="update animal">
         </form>
 </body>

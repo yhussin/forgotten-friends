@@ -21,9 +21,9 @@ router.get('/new', (req, res) => {
         return res.redirect('/admin')
     }
 
-    res.render('animals/new', {
-       error: "Please complete all fields",
-       //need to update - shows up even without error
+    return res.render('animals/new', {
+        //error: "Please complete all fields",
+        //need to update - shows up even without error
     });
 });
 
@@ -39,10 +39,9 @@ router.post('/', async (req, res) => {
         adminProfile.animals.push(newAnimal)
 
         adminProfile.save((err, savedAdminProfile) => {
-        if (err) {
-            return res.send(err)
-        } 
-        //res.redirect(`/animals/${newAnimal._id}`)
+            if (err) {
+                return res.send(err)
+            }
         })
 
         // console.log('currentUser from animalController:', req.session.currentUser);
@@ -50,8 +49,10 @@ router.post('/', async (req, res) => {
         // console.log('admin profile:', adminProfile.username)
 
         res.redirect(`/animals/${newAnimal._id}`)
-    }   catch (err) {
-        res.send(err)
+    } catch (error) {
+        res.render('animals/new', {
+            error: 'PLEASE FILL EVERYTHING OUT!'
+        })
     }
 });
 
@@ -60,14 +61,13 @@ router.get('/:id', async (req, res) => {
     try {
         const foundAnimal = await db.Animal.findById(req.params.id).populate('admin');
         const adminProfile = await db.Animal.findById(req.params.id).populate('admin');
-       
+
         console.log("foundAnimal", foundAnimal);
         console.log("adminprofile:", adminProfile);
-       
+
 
         res.render('animals/show', {
-            error: "Some error message", 
-            animal: foundAnimal, 
+            animal: foundAnimal,
             admin: adminProfile,
         });
     } catch (err) {
@@ -86,7 +86,7 @@ router.get('/:id', async (req, res) => {
 //         console.log('foundAnimal:', foundAnimal)
 //         res.render('animals/show', {
 //             animal: foundAnimal,
-            
+
 //             //user: adminProfile.username,
 //         })
 //     })
@@ -104,6 +104,7 @@ router.get('/:id/edit', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+    console.log("Request is here:", req.body);
     db.Animal.findByIdAndUpdate(
         req.params.id,
         req.body,
