@@ -15,7 +15,11 @@ const AdminSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    }
+    }, 
+    animals: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Animal'
+    }],
 })
 
 const Admin = mongoose.model('Admin', AdminSchema)

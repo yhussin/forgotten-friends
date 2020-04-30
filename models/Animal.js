@@ -15,6 +15,10 @@ const AnimalSchema = new mongoose.Schema({
     age: {
         type: Number, 
         required: true,
+    }, 
+    admin: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Admin',
     }
 });
 
