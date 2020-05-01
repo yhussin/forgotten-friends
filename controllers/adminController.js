@@ -34,7 +34,7 @@ router.post('/register', async (req, res) => {
         password: hash,
         // HASH PASSWORD - it is still showing on new registrations
     }
-
+    console.log(adminData)
     await db.Admin.create(adminData);
     res.redirect('/admin/login');
     } catch (err) {
@@ -49,9 +49,9 @@ router.get('/login', (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-    console.log(req.body)
+
     const admin = await db.Admin.findOne({username: req.body.username});
-    console.log('admin', admin);
+    //console.log('admin', admin);
 
     if (!admin) {
         return res.render('admin/login', {
@@ -60,15 +60,15 @@ router.post('/login', async (req, res) => {
     }
 
     const passwordsMatch = bcrypt.compareSync(req.body.password, admin.password)
-
+    //console.log(req.body);
     if (passwordsMatch === false) {
         return res.render('admin/login', {
             error: 'INVALID CREDENTIALS'
         })
     }
     req.session.currentUser = admin._id
-    console.log('this is req.session:', req.session)
-    res.redirect('/')
+    //console.log('this is req.session:', req.session)
+    res.redirect('/animals/new')
     }
     catch (err) {
         res.send(err)
@@ -80,7 +80,7 @@ router.get('/logout', async (req, res) => {
         if (req.session.currentUser !== 'undefined') {
         await req.session.destroy();
         res.redirect('/admin/login');
-        console.log("is session deleted?:", req.session)    
+        //console.log("is session deleted?:", req.session)    
         }
         
     } catch (err) {
@@ -90,6 +90,3 @@ router.get('/logout', async (req, res) => {
 
 module.exports = router;
 
-
-//            <h3>Profile created on: <%= new Date (animal.createdAt).toLocaleDateString() %></h3>
-// add to show route
