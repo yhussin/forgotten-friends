@@ -1,22 +1,25 @@
 <%- include('../partials/_head') %> 
 
 <% if (typeof error !== 'undefined') { %> 
-<span><%= error %> </span>
+<span class="warning"><%= error %> </span>
 <% } %> 
 
-<h1>Login below</h1>
-<form action="/admin/login" method="POST">
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
-    </div>
+<h1 class="headers">Login below</h1>
 
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+<form action="/admin/login" method="POST">
+    <div class="form-group row groupwidth">
+      <label for="username" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username" name="username">
+      </div>
     </div>
-    
-    <input type="submit" value="Login">
-    </form>
+    <div class="form-group row groupwidth">
+      <label for="password" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+    </div>
+    <input type="submit" value="Login" class="btn btn-large whitebtn">
+</form>
 
 <%- include('../partials/_footer') %> 

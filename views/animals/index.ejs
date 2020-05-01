@@ -5,12 +5,15 @@
   <div class="row">
 
     <% animals.forEach((animal) => { %> 
+      
       <div class="card col-lg-4">
-        <p>
+        <p id="animalnamesmain">
         <%= animal.name %> 
         </p>
         
-    <img src="<%= animal.image %>" alt="animal picture">
+      <div class="allimg">
+      <img class="picture" src="<%= animal.image %>" alt="animal picture">
+    </div>
     <p><a class="btn btn-secondary" href="/animals/<%= animal._id%>" role="button" id="buttonforanimals">View me!</a></p>
       </div>
    <% }) %>
