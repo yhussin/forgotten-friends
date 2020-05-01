@@ -21,7 +21,10 @@ router.post('/register', async (req, res) => {
         const admin = await db.Admin.findOne({username: req.body.username});
 
         if (admin) {
-            return res.send('<h1>Account already exists, try again</h1>')
+            res.render('admin/register', {
+                error: "Account already exists"
+            })
+            //return res.send('<h1>Account already exists, try again</h1>')
         }
 
     const salt = bcrypt.genSaltSync(10);

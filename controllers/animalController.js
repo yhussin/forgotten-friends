@@ -25,7 +25,6 @@ router.get('/new', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    //connection to req.session.currentuser
     try {
         req.body.admin = req.session.currentUser
 
@@ -84,8 +83,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', async (req, res) => {
     
-    try {
-    //const sessionId = await db.Animal.findById(req.params.id).populate('admin');    
+    try {   
     const updatedAnimal = await db.Animal.findByIdAndUpdate(
         req.params.id,
         req.body,
@@ -98,23 +96,9 @@ router.put('/:id', async (req, res) => {
 
     } catch (err) {
         return res.send(err)}
-        
+
 });
 
-// router.put('/:id', (req, res) => {
-//     console.log("Request is here:", req.body);
-//     db.Animal.findByIdAndUpdate(
-//         req.params.id,
-//         req.body,
-//         { new: true, runValidators: true},
-//         (err, updatedAnimal) => {
-//             if (error) {
-//                 return res.send(err)
-//             }
-//             res.redirect(`/animals/${updatedAnimal._id}`)
-//         }
-//     )
-// });
 
 router.delete('/:id', (req, res) => {
     db.Animal.findByIdAndDelete(req.params.id, (err, deletedAnimal) => {
