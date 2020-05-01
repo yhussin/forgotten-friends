@@ -1,5 +1,5 @@
 const express = require('express');
-
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 const db = require('../models')
 
@@ -21,14 +21,10 @@ router.get('/new', (req, res) => {
         return res.redirect('/admin')
     }
 
-    return res.render('animals/new', {
-        //error: "Please complete all fields",
-        //need to update - shows up even without error
-    });
+    return res.render('animals/new');
 });
 
 router.post('/', async (req, res) => {
-    //connection to req.session.currentuser
     try {
         req.body.admin = req.session.currentUser
 
@@ -51,7 +47,7 @@ router.post('/', async (req, res) => {
         res.redirect(`/animals/${newAnimal._id}`)
     } catch (error) {
         res.render('animals/new', {
-            error: 'PLEASE FILL EVERYTHING OUT!'
+            error: 'PLEASE FILL OUT ALL FIELDS'
         })
     }
 });
@@ -61,10 +57,6 @@ router.get('/:id', async (req, res) => {
     try {
         const foundAnimal = await db.Animal.findById(req.params.id).populate('admin');
         const adminProfile = await db.Animal.findById(req.params.id).populate('admin');
-
-        console.log("foundAnimal", foundAnimal);
-        console.log("adminprofile:", adminProfile);
-
 
         res.render('animals/show', {
             animal: foundAnimal,
@@ -77,21 +69,6 @@ router.get('/:id', async (req, res) => {
 
 
 
-
-// router.get('/:id', (req, res) => {  //use populate
-//     db.Animal.findById(req.params.id, (err, foundAnimal) => {
-//         if (err) {
-//             return res.send(err)
-//         }
-//         console.log('foundAnimal:', foundAnimal)
-//         res.render('animals/show', {
-//             animal: foundAnimal,
-
-//             //user: adminProfile.username,
-//         })
-//     })
-// });
-
 router.get('/:id/edit', (req, res) => {
     db.Animal.findById(req.params.id, (err, foundAnimal) => {
         if (err) {
@@ -103,35 +80,25 @@ router.get('/:id/edit', (req, res) => {
     })
 });
 
-router.put('/:id', (req, res) => {
-    console.log("Request is here:", req.body);
-    db.Animal.findByIdAndUpdate(
+
+router.put('/:id', async (req, res) => {
+    
+    try {   
+    const updatedAnimal = await db.Animal.findByIdAndUpdate(
         req.params.id,
         req.body,
-        { new: true, runValidators: true},
-        (err, updatedAnimal) => {
-            if (err) {
-                return res.send(err)
-            }
-            res.redirect(`/animals/${updatedAnimal._id}`)
-        }
-    )
+        { new: true, runValidators: true})
+
+        //console.log("session ID:", sessionId)
+        //console.log("updated Animal:", updatedAnimal)
+
+        res.redirect(`/animals/${updatedAnimal._id}`)
+
+    } catch (err) {
+        return res.send(err)}
+
 });
 
-// router.put('/:id', (req, res) => {
-//     console.log("Request is here:", req.body);
-//     db.Animal.findByIdAndUpdate(
-//         req.params.id,
-//         req.body,
-//         { new: true, runValidators: true},
-//         (err, updatedAnimal) => {
-//             if (error) {
-//                 return res.send(err)
-//             }
-//             res.redirect(`/animals/${updatedAnimal._id}`)
-//         }
-//     )
-// });
 
 router.delete('/:id', (req, res) => {
     db.Animal.findByIdAndDelete(req.params.id, (err, deletedAnimal) => {
