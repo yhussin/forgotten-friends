@@ -1,0 +1,254 @@
+body {
+    background-color: #5971AD	;
+    text-align: center;
+    color: whitesmoke;
+    margin: 0;
+    overflow-x: hidden;
+    cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAZCAMAAAD63NUrAAAACVBMVEX///8AAAD///9+749PAAAAAXRSTlMAQObYZgAAAFZJREFUeNqdzksKwDAIAFHH+x+6lIYOVPOhs5OHJnES/5UkYKEkU7xjijSIm50iFh4fAXgYDd/yumVVRSwsqq/nRA3xVK0oo06d5U6DpQZ7PV7lMxH7LkaQAbYFwryzAAAAAElFTkSuQmCC),auto;
+}
+.body-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+h1 {
+    font-size: 50px;
+}
+.navbar {
+    padding: 15px;
+    cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAZCAMAAAD63NUrAAAACVBMVEX///8AAAD///9+749PAAAAAXRSTlMAQObYZgAAAFZJREFUeNqdzksKwDAIAFHH+x+6lIYOVPOhs5OHJnES/5UkYKEkU7xjijSIm50iFh4fAXgYDd/yumVVRSwsqq/nRA3xVK0oo06d5U6DpQZ7PV7lMxH7LkaQAbYFwryzAAAAAElFTkSuQmCC),auto;
+}
+.navbar a {
+    text-decoration: none;
+    padding: 10px;
+    cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAZCAMAAAD63NUrAAAACVBMVEX///8AAAD///9+749PAAAAAXRSTlMAQObYZgAAAFZJREFUeNqdzksKwDAIAFHH+x+6lIYOVPOhs5OHJnES/5UkYKEkU7xjijSIm50iFh4fAXgYDd/yumVVRSwsqq/nRA3xVK0oo06d5U6DpQZ7PV7lMxH7LkaQAbYFwryzAAAAAElFTkSuQmCC),auto;
+}
+.card {
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-decoration-color: none;
+    color: black;
+    align-self: center;
+    width: 500px;
+    height: 500px;
+}
+.indvcard{
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+}
+#indvimage {
+    width: 400px;
+    height: 400px;
+    align-self: center;
+    object-fit: cover;
+}
+.picture {
+    align-self: center;
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+}
+#animalnamesmain{
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+#petnameheader{
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+}
+#animalage{
+    margin-top: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+}
+.container {
+    display: flex;
+    justify-content: space-evenly;
+} 
+#edbtn a:hover{
+    text-decoration: none;
+}
+.profilebuttons{
+    display:block;
+    align-content: center;
+    color: black;
+}
+#edbtn {
+    color: black;
+    width: 11%;
+}
+.shelterinformation{
+    margin: 50px 0px 0px 60px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    background:whitesmoke;
+    border-radius: 20px;
+    color: black;
+    padding: 15px;
+    text-align: left;
+}
+.headers{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.groupwidth{
+    margin-top: 1%;
+   margin-left: 25%;
+    width: 50%;
+}
+.btn{
+    background-color:#5971AD;
+    margin: 0px 5px 5px 5px;
+}
+#buttonforanimals{
+    align-items: center;
+    margin-top: 20px;
+}
+.whitebtn{
+    background-color: whitesmoke;
+}
+.friendsheader{
+    margin: 40px 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    border: whitesmoke 5px;
+}
+#shelterhead{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+}
+.catalogs{
+    margin-top: 100px;
+}
+.catalog1{
+    height: 100%;
+    margin-right: 30%;
+    font-size: 15px;
+    background:whitesmoke;
+    border-radius: 20px;
+    color: black;
+    padding: 15px;
+}
+.catalog2{ 
+    height: 100%;
+    font-size: 15px;
+    background:whitesmoke;
+    border-radius: 20px;
+    color: black;
+    padding: 15px;
+}
+.catalog3{
+    height: 100%;
+    margin-left: 30%;
+    font-size: 15px;
+    background:whitesmoke;
+    border-radius: 20px;
+    color: black;
+    padding: 15px;
+}
+.shelterimage{
+    margin: -400px 0px 0px 630px;
+    z-index: 3px;
+}
+.dogheader{
+    margin-top:10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+.catheader{
+    margin-top:10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+.smallanimalsheader{
+    margin-top:10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+.editform{
+    margin-top: 5%;
+    border: solid whitesmoke 5px;
+    padding: 20px 10px 10px 20px;
+    width: 50%;
+}
+#editheader{
+    margin-top: 5%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+}
+#inputeditbtn{
+ margin-top: 20px;
+}
+@media (max-width: 860px) { 
+    .shelterimage{
+        margin: auto;
+        z-index: 1px;
+}
+        .catalog1{
+            margin-right: auto;
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+        .catalog2{ 
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+        .catalog3{
+            margin-left: auto;
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+  }
+  @media (max-width: 480px) { 
+    .shelterimage{
+        margin: auto;
+        z-index: 1px;
+        }
+        .catalog1{
+            margin-right: auto;
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+        .catalog2{ 
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+        
+        .catalog3{
+            margin-left: auto;
+            font-size: 15px;
+            background:whitesmoke;
+            border-radius: 20px;
+            color: black;
+            padding: 15px;
+        }
+  }
+  .warning {
+      color: red;
+  }

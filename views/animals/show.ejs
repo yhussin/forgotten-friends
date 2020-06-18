@@ -1,0 +1,25 @@
+<%- include('../partials/_head') %> 
+
+            <h1>Animal profile</h1>
+			
+    <body>
+        <section>
+            <id class="card indvcard">
+            <h3 id="animalage"><%= animal.name %>: <%= animal.age %> years old</h3>
+            <h3 id="petnameheader">Description:<%= animal.description %> </h3>
+           <img src="<%= animal.image %> " alt="" id="indvimage">
+            <br>
+         
+
+            <h3>Profile creator: <%= admin.admin.username %> </h3>
+            <h3>Profile created on: <%= new Date (animal.createdAt).toLocaleDateString() %></h3>
+            <div class="profilebuttons">
+            <form action="/animals/<%= animal._id%>?_method=DELETE" method="POST"><button type="submit" class="btn btn-large">Delete</button>
+            </form>
+                <button type="submit" class="btn btn-large" id="edbtn"> <a href="/animals/<%= animal._id %>/edit">Edit</a></button>
+            </div>
+        </div>
+        </section>
+    </body>
+
+	<%- include('../partials/_footer') %> 

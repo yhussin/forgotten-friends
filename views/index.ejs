@@ -1,11 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   <h1>Forgotten Friends</h1> 
-</body>
-</html>
+<%- include('./partials/_head') %> 
+
+    <div class="row">
+      <div class="col-md-5 shelterinformation">
+        <h2 class="featurette-heading" id="shelterhead">About Our Shelter:</h2>
+        <p class="lead" id="shelterdescription">Forgotten Friends provides shelter and care for neglected and homeless pets. Our shelter accepts dogs, cats, and other small animals. Once properly rehabilitated, our animals have the chance to find a loving new home by having their information uploaded to the site. Our website allows users to view animals that are currently available for adoption.
+          Our shelter is always open to having vistors who wish to adopt an animal, and visitors who want to come down just to view and play with our animals.</p>
+      </div>
+
+      <div class="col-md-7 shelterimage">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="700" height="700" img src="https://imgur.com/71J4aab.png" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"></img>
+      </div>
+      </div>
+
+
+        <div class="container marketing catalogs">
+
+            <!-- Sets up row 1/3: dogs -->
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="catalog1">
+                <img class="bd-placeholder-img rounded-circle" img src="https://imgur.com/v8nEVLj.png" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title></img>
+                <h2 class="dogheader">Dogs</h2>
+                <p>Our shelter provides housing and rehabilitation to all dogs in need. Rehabilitation can include: spaying/neutering, vaccination, and any needed medical treatment. Adopting a dog from our shelter can be a wonderful addition to your life, and can mean a second chance for any of our dogs.</p>
+                <p><a class="btn btn-secondary" href="/animals/" role="button">See animals!</a></p>
+              </div>
+              </div>
+
+              <!-- Sets up row 2/3: cats -->
+              <div class="col-lg-4">
+                <div class="catalog2">
+                <img class="bd-placeholder-img rounded-circle" img src="https://imgur.com/pb4qeBf.png" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title></img>
+                <h2 class="catheader">Cats</h2>
+                <p>Our shelter takes in all cats in need of proper housing and support. Support for our cats can include: spaying/neutering, vaccination, and any needed medical treatment. Our shelter always has many different cats waiting to be adopted, browse our website or come down in person to see if any are a good fit for your home.</p>
+                <p><a class="btn btn-secondary" href="/animals/" role="button">See animals!</a></p>
+              </div>
+              </div>
+
+              <!-- Sets up row 3/3: small animals -->
+              <div class="col-lg-4">
+                <div class="catalog3">
+                <img class="bd-placeholder-img rounded-circle" img src="https://imgur.com/ljAtF7Q.png" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title></img>
+                <h2 class="smallanimalsheader">Small animals</h2>
+                <p>Though more rare than cats and dogs, our shelter does house and support a number of different small animals such bunnies and hamsters. These small, yet loving, animals could be a great option for busy individuals as they require less of a time commitment.</p>
+                <p><a class="btn btn-secondary" href="/animals/" role="button">See animals!</a></p>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+
+
+
+<%- include('./partials/_footer') %> 

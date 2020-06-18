@@ -1,0 +1,33 @@
+<%- include('../partials/_head') %> 
+
+<h1 class="friendsheader">Our Animals!</h1>
+<div class="container">
+  <div class="row">
+
+    <% animals.forEach((animal) => { %> 
+      
+      <div class="card col-lg-4">
+        <p id="animalnamesmain">
+        <%= animal.name %> 
+        </p>
+        
+      <div class="allimg">
+      <img class="picture" src="<%= animal.image %>" alt="animal picture">
+    </div>
+    <p><a class="btn btn-secondary" href="/animals/<%= animal._id%>" role="button" id="buttonforanimals">View me!</a></p>
+      </div>
+   <% }) %>
+  </div>
+</div>
+
+
+<%- include('../partials/_footer') %> 
+
+<!-- <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
