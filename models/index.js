@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connectionString = 'mongodb://localhost:27017/forgotten-friends'
+const connectionString = process.env.MONGODB_URI || 'mongodb+srv://yousef:BVI8rBstmZkaH9s6@cluster0-lazji.mongodb.net/forgotten-friends?retryWrites=true&w=majority'
 
 const configOptions = {
     useNewUrlParser: true,
